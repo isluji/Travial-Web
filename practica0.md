@@ -27,4 +27,5 @@ https://help.github.com/articles/changing-a-remote-s-url/
 ## Ampliación de conceptos
 
 http://aprendegit.com/que-es-un-pull-request/
+
 http://www.genbetadev.com/herramientas/manejo-de-ramas-de-desarrollo-con-git
