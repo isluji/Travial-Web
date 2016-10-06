@@ -13,4 +13,4 @@ Este curso voy a realizar como TFG el desarrollo de una aplicación móvil basad
 * Contactar con el soporte para resolución de dudas y planteamiento de sugerencias y quejas
 * Servicio de mensajería para comunicarse entre los usuarios
 
-Este proyecto participa en el **certamen de proyectos libres de la UGR**.
+Este proyecto participa en el [**certamen de proyectos libres de la UGR**](http://osl.ugr.es/bases-de-los-premios-a-proyectos-libres-de-la-ugr/).
