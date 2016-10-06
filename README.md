@@ -1,4 +1,4 @@
-# Travia-Web 
+# Travial-Web 
 
 ## Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez
 
