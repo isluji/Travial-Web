@@ -1,4 +1,4 @@
-# Travial-Web 
+# Travial-Web
 
 ## Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez
 
@@ -11,6 +11,5 @@ Este curso voy a realizar como TFG el desarrollo de una aplicación móvil basad
 * Consultar sus estadísticas (lugares visitados, porcentaje de acierto, etc.)
 * Comprobar su posición en el ranking de su comunidad y en el nacional
 * Contactar con el soporte para resolución de dudas y planteamiento de sugerencias y quejas
-* Servicio de mensajería para comunicarse entre los usuarios
 
 Este proyecto participa en el [**certamen de proyectos libres de la UGR**](http://osl.ugr.es/bases-de-los-premios-a-proyectos-libres-de-la-ugr/).
