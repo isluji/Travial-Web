@@ -9,12 +9,12 @@ Este proyecto participa en el **certamen de proyectos libres de la UGR**.
 
 ## HERRAMIENTAS A UTILIZAR
 
-Los servicios en la nube conformarán una infraestructura virtual que servirá de back-end tanto para la web como para la aplicación. Desarrollaré la aplicación utilizando el framework de Python basado en MVC Django.
+Los servicios en la nube conformarán una infraestructura virtual que servirá de back-end tanto para la web como para la aplicación. Desarrollaré la aplicación utilizando el "microframework" de Python denominado Flask. Al principio, tenía pensado utilizar Django, pero el profesor nos comentó que es un framework demsiado complejo para lo que necesitamos en el proyecto y nos recomendó el uso de Flask.
 
-Para acceder a las funcionalidades de la página, los usuarios habrán de identificarse con las mismas credenciales de usuario con las que se registraron en la aplicación, o registrar una cuenta si aún no la han probado. Por tanto, necesitaré un servicio de registro y login/logout de usuarios.
+Para que los usuarios accedan a la página, necesitaremos un servicio de registro y login/logout de usuarios.
+Toda la información dinámica del servicio web (credenciales de usuario, datos, logs) estará almacenada utilizando sistemas de bases de datos en la nube, mientras que alojaremos la información estática (ficheros, imágenes, vídeos) en un servicio de alojamiento en la nube. Tendremos el siguiente esquema de bases de datos:
 
-Todos los datos de los usuarios estarán almacenados utilizando un sistema de bases de datos. También contaremos con un servicio de almacenamiento para hospedar imágenes e información sobre los puntos de interés. Además, necesitaremos de un servidor de mensajería para implementar la función de intercambio de mensajes entre usuarios.
+  - Credenciales de usuario => Utilizaremos una base de datos MySQL
+  - Estadísticas del jugador + Logs => Utilizaremos bases de datos no relacionales (nodos separados)
 
-Todos estos servicios serán servicios cloud, tanto PaaS (servicios necesarios para desplegar la aplicación) como IaaS (infraestructura donde la desplegaremos).
-
-También necesitamos servicios en la nube para herramientas de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo. Como no conozco aún estas características, pospondré la elección de las herramientas correspondientes para posteriores semanas.
+También necesitaremos servicios en la nube para herramientas de configuración, prueba, despliegue, integración continua, herramientas de construcción, entornos virtuales y testeo. Como no conozco aún estas características, pospondré la elección de las herramientas correspondientes para posteriores semanas.
