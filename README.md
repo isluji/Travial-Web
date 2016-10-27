@@ -1,4 +1,4 @@
-# Travial-Web
+# Travial-Web [![Build Status](https://travis-ci.org/isma94/Travial-Web.svg?branch=master)](https://travis-ci.org/isma94/Travial-Web)
 
 ## Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez
 
