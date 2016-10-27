@@ -1,5 +1,12 @@
-from django.test import TestCase
+import django
+from django.conf import settings
 
+settings.configure()
+django.setup()
+
+# -----------------------------------
+
+from django.test import TestCase
 from models import Player
 
 # Create your tests here.
