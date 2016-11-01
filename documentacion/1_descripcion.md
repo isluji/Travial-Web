@@ -9,7 +9,7 @@ Este proyecto participa en el **certamen de proyectos libres de la UGR**.
 
 ## HERRAMIENTAS A UTILIZAR
 
-Los servicios en la nube conformarán una infraestructura virtual que servirá de back-end tanto para la web como para la aplicación. Desarrollaré la aplicación utilizando el "microframework" de Python denominado Flask. Al principio, tenía pensado utilizar Django, pero el profesor nos comentó que es un framework demsiado complejo para lo que necesitamos en el proyecto y nos recomendó el uso de Flask.
+Los servicios en la nube conformarán una infraestructura virtual que servirá de back-end tanto para la web como para la aplicación. Desarrollaré la aplicación utilizando el framework MVC de Python denominado Django.
 
 Para que los usuarios accedan a la página, necesitaremos un servicio de registro y login/logout de usuarios.
 Toda la información dinámica del servicio web (credenciales de usuario, datos, logs) estará almacenada utilizando sistemas de bases de datos en la nube, mientras que alojaremos la información estática (ficheros, imágenes, vídeos) en un servicio de alojamiento en la nube. Tendremos el siguiente esquema de bases de datos:
