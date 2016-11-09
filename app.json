@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "Travial-Web",
+  "description": "Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
+  "repository": "https://github.com/isma94/Travial-Web",
+  "keywords": ["python", "django", "gunicorn" ],
   "addons": [ "heroku-postgresql" ]
 }
