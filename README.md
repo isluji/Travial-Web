@@ -1,44 +1,15 @@
-# python-getting-started
+# Travial-Web [![Build Status](https://travis-ci.org/isma94/Travial-Web.svg?branch=master)](https://travis-ci.org/isma94/Travial-Web)
 
-A barebones Python app, which can easily be deployed to Heroku.
+## Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
-## Running Locally
+### DESCRIPCIÓN
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+Este curso voy a realizar como TFG el desarrollo de una aplicación móvil basada en la gamificación para fomentar el turismo en Granada. Como apoyo a esta aplicación, utilizaré este repositorio para desarrollar un servicio web complementario en el que los jugadores podrán acceder a las siguientes funcionalidades:
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+* Acceder a tutoriales que expliquen el funcionamiento del juego
+* Consultar sus estadísticas (lugares visitados, porcentaje de acierto, etc.)
+* Comprobar su posición en el ranking de su comunidad y en el nacional
+* Contactar con el soporte para resolución de dudas y planteamiento de sugerencias y quejas
 
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
-```
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+Este proyecto participa en el [**certamen de proyectos libres de la UGR**](http://osl.ugr.es/bases-de-los-premios-a-proyectos-libres-de-la-ugr/).
