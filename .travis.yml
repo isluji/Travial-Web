@@ -1,7 +1,13 @@
 language: python
 python:
-  - "2.7"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
+- '2.7'
+install: pip install -r requirements.txt
 script: python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Z8i3iB0pGGPWUuSRI5rvDDZO5qATZVdXM3/cyjyWnJLktJa/2pyVOKCj4ODski0lCAXEj/dVeFS7heFygybXIN3fxawTI+V0pwdn29xaBrJTL/KNQ9rGIJgaw95GQh5dwCmSv6WxMnaH+8UHZeu8sb4j9NjCUZll6AP8VWx6APX2zHD/ZNx5azwcNFX2kozWUXmGYkaWcpipu72gDVskDf3syjpmfWda6WHzGDPIAEpQdUbhia1UJUVuF73S4GObPLMl7m8lncNSev97GnMfByA3CQPMIZ8cdMso2f5MnJPTC3dLxWYgA5dkbsACReeS8dhWM01hY7gwVpgDTReC+68gHaGAJCiu+YWbgxEC8i7EXEgUoWvNgcFV3ugvXmfAci3zmDXe2Bdw1WT1wToTgF+dTdKjoFHS754i0QpRcp+GJqrjjPRbf1wlLUHHquLIkMl6wwPNoM2qrsUVJTXVlalYmh6KccVGJr2zmv+vsq8NSmzJiHstmVgcSMly2mCVjcZ2YJQu5n74Msmc8B9gAlB68GedM/lTmAWvFIhbvNrS5lHtynu0hk+HXl+52/zqAZDsMtEDrKJiO9pEqXfnv8U+7VBZTMG2vypUczwWNe4ag8EffQGzl9ZY5/ytxEvRD7QpNbcQE9iEHQNWZL98h6PPBzNmn7+kXd3hKWIQ1+w=
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database test;' -U postgres
