@@ -11,4 +11,5 @@ services:
   - postgresql
 before_script:
   - psql -c "CREATE USER isluji WITH PASSWORD 'basedatos';" -U postgres
+  - psql -c "ALTER USER isluji CREATEDB;" -U postgres
   #- psql -c 'create database test;' -U postgres
