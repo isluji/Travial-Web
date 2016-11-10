@@ -1,6 +1,5 @@
 """
-Django settings for travial_web project, on Heroku. For more info, see:
-https://github.com/heroku/heroku-django-template
+Django settings for travial_web project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.8/topics/settings/
@@ -79,10 +78,7 @@ WSGI_APPLICATION = 'travial_web.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': { }
 }
 
 # Password validation
@@ -115,7 +111,9 @@ USE_TZ = True
 
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500) # Enable persistent connections
+#   - default='postgres://isluji:basedatos@localhost/travial_web' => Enable local execution
+#   - conn_max_age=500 => Enable persistent connections
+db_from_env = dj_database_url.config(default='postgres://isluji:basedatos@localhost/travial_web', conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
