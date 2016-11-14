@@ -10,8 +10,8 @@ deploy:
   app: travial-web
   on:
     repo: isma94/Travial-Web
-# services:
-#   - postgresql
-# before_script:
-#   - psql -c "CREATE USER isluji WITH PASSWORD 'basedatos';" -U postgres
-#   - psql -c "ALTER USER isluji CREATEDB;" -U postgres
+ services:
+   - postgresql
+ before_script:
+   - psql -c "CREATE USER isluji WITH PASSWORD 'basedatos';" -U postgres
+   - psql -c "ALTER USER isluji CREATEDB;" -U postgres
