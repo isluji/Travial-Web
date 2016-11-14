@@ -3,11 +3,13 @@ python:
 - '2.7'
 install: pip install -r requirements.txt
 script: python manage.py test
-# deploy:
-#   provider: heroku
-#   buildpack: python
-#   #api_key:
-#     #secure: 85c4174d-d108-4038-9d00-e22a82339382
+deploy:
+  provider: heroku
+  api_key:
+    secure: OzruAjCS9w4ttOI3doifgqZfgQDR66ZcL00YDDlx4jcGalmAHY9o8hpDYxTOjzZqsniFXWnkALfwJv/hCaUYhjIOhWjfEtp3rkTYFtdBDFJ47TNmJtS6hoFyW4B9rdazgLW/zkJMzHHiSbmuAL//jdrL8TrA+q0IWNSL+ErRwD37/FACcIs/v02siCE5xy5pk2uvFSUuFWcjsMR+uOk1Vsc9N0JXqjQn2iWkV4aNWBUx5pxI1QMtdZEN7RSPSQqoDjoth4dUolfYsq79Ef7ibdtiEJKmVRJVtR8T9RmjdguAU9COxnWJEHcEvZqMcXzL0z2FwHWU4jxVxaAb4oqAokAwHIH5R2rashSR8GEpwiVLbQyxLG0i4g4uMdj6ifOhCZ6JcHonzbZLYov+HxjZy7pMQ9N/xM6cr9I3bhNXkfpqJTcFrYISS6a2fM6qYdXx4aRCfXLJn9i1RTyb5CZXYcwwfPf6MkO/u0P9nm30TPZWKYDl5Pc4UlU9mlPJ6P6E4Ahnms8QQ5bl/LPri29mQSAPNf//+bjJUNBpvVmpDun4tlKezicG7fPYT6frYwYd+fKMbu68z4I8EU22czmzLWTcdBl0288F08l7ho37KoJAvZxRPpex2DEHdyGhOTcLgFmdNNN0xCd9mvAn76RAl5zDaz2/jb5Yjuzt6DguTmg=
+  app: travial-web
+  on:
+    repo: isma94/Travial-Web
 # services:
 #   - postgresql
 # before_script:
