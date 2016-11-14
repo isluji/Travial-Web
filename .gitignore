@@ -102,5 +102,5 @@ ENV/
 # Gunicorn stuff
 staticfiles
 
-# Personal aux file
-dudas.txt
+# Personal aux files
+tareas/
