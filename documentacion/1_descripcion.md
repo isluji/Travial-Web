@@ -1,11 +1,5 @@
 
-## MOTIVACIÓN DEL PROYECTO
-
-Cuando a un jugador le gusta un videojuego, suele pasar tiempo leyendo cosas sobre él, ver vídeos, sus rankings, etc. Este servicio web está pensado para servir de portal a todas esas actividades, sirviendo tanto de introducción a los nuevos jugadores (tutoriales, soporte, etc.) como de punto de encuentro para jugadores habituales (estadísticas, rankings, mensajes, etc.).
-
-Este proyecto participa en el **certamen de proyectos libres de la UGR**.
-
-## HERRAMIENTAS A UTILIZAR
+### Herramientas a utilizar en el proyecto
 
 Los servicios en la nube conformarán una infraestructura virtual que servirá de back-end tanto para la web como para la aplicación. Desarrollaré la aplicación utilizando el framework MVC de Python denominado Django.
 
