@@ -6,31 +6,36 @@ En este hito, he configurado mi repositorio de GitHub para combinar integración
 
 He elegido el servicio Heroku, puesto que tiene un servicio gratuito que es suficiente para los requisitos de mi proyecto, lo utilizamos en los ejercicios del tema 3 y ademaś tiene una amplia documentación. Heroku cumple los dos requisitos exigidos en el hito para la elección del PaaS:
 
-  * La configuración se puede definir mediante órdenes utilizando el **toolbelt** de Heroku (Heroku CLI), de forma que otra persona pueda reproducir la infraestructura y desplegar el mismo proyecto. Para facilitarle el trabajo, esta persona simplemente tendría que ejecutar el siguiente script para desplegar el proyecto:
+  * La configuración se puede definir mediante órdenes utilizando el **toolbelt** de Heroku (Heroku CLI), de forma que otra persona pueda reproducir la infraestructura y desplegar el mismo proyecto.
+
+  Para instalar este toolbelt en Ubuntu, ejecutamos el siguiente comando:
 
   ```bash
-  # Instalar Heroku CLI
   wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  # Hacer login en Heroku
-  heroku login
-  # Clonar repositorio de la aplicacion
-  git clone https://github.com/isma94/Travial-Web
-  cd Travial-Web
-  # Crear aplicacion en heroku
-  heroku create
-  # Desplegar aplicacion
-  git push heroku master
-
   ```
 
-  Para comprobar que este despliegue se ha realizado correctamente, podemos ejecutar las siguientes órdenes, la última de las cuales lanzará la aplicación para que podamos verlo directamente.
+  Clonamos el repositorio de la aplicación con los siguientes comandos:
+
+  ```bash
+  git clone https://github.com/isma94/Travial-Web
+  cd Travial-Web
+  ```
+
+  A continuación, entramos en nuestra cuenta de Heroku con ```heroku login``` y creamos la aplicación con ```heroku create```. Esta última orden crea tanto un proyecto en Heroku como el remoto de git al que hemos de enviar los cambios para desplegar la aplicación. Por tanto, ya podemos desplegar la aplicación con el comando:
+
+  ```bash
+  git push heroku master
+  ```
+
+  Para comprobar que este despliegue se ha realizado correctamente, podemos ejecutar las siguientes órdenes; la última de ellas lanzará la aplicación para que podamos verla en funcionamiento.
 
   ```bash
   # Asegurarse de que se esta ejecutando al menos una instancia
   heroku ps:scale web=1
-  # Lanzar aplicacion
+  # Lanzar aplicacion en el navegador
   heroku open
   ```
+
 
   * Permite **despliegue continuo**, es decir, que haciendo push desde el repositorio de GitHub se despliegue la nueva versión en el PaaS (siempre que pase las pruebas en el servicio de CI).
 
