@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# Instalar Heroku CLI
-wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-# Hacer login en Heroku
-heroku login
 # Clonar repositorio de la aplicacion
 git clone https://github.com/isma94/Travial-Web
 cd Travial-Web
+# Hacer login en Heroku
+heroku login
 # Crear aplicacion en heroku
 heroku create
 # Desplegar aplicacion

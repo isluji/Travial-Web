@@ -1,8 +1,9 @@
 {
-  "name": "travial-web",
-  "description": "Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez",
+  "name": "Travial-Web",
+  "description": "Web de apoyo a la aplicación Travial de fomento del turismo en Granada",
+  "logo": "https://github.com/isma94/Travial-Web/blob/master/travial_web_app/static/logo.jpg",
   "image": "heroku/python",
   "repository": "https://github.com/isma94/Travial-Web",
-  "keywords": ["python", "django", "gunicorn" ],
+  "keywords": [ "gps", "trivia", "Granada", "python", "django", "gunicorn" ],
   "addons": [ "heroku-postgresql" ]
 }
