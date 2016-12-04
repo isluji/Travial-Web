@@ -78,8 +78,15 @@ WSGI_APPLICATION = 'travial_web.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': { }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -111,9 +118,10 @@ USE_TZ = True
 
 
 # Update database configuration with $DATABASE_URL.
-#   - default='postgres://isluji:basedatos@localhost/travial_web' => Enable local execution
+#   - default='postgres://USER:PASSWORD@HOST:PORT/DBNAME' => Enable local execution
+#   - default='postgres://isluji:basedatos@localhost/travial_web'
 #   - conn_max_age=500 => Enable persistent connections
-db_from_env = dj_database_url.config(default='postgres://isluji:basedatos@localhost/travial_web', conn_max_age=500)
+db_from_env = dj_database_url.config(default='postgresql://postgres@db:5432/postgres', conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

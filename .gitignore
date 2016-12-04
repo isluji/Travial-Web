@@ -97,10 +97,10 @@ ENV/
 *.sqlite3
 
 # Documentation stuff
-*/doc/
+**/doc/
 
 # Gunicorn stuff
 staticfiles
 
-# Personal aux files
-tareas/
+# Personal aux stuff
+/dudas/
