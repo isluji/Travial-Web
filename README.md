@@ -1,4 +1,4 @@
-# Travial-Web [![Build Status](https://travis-ci.org/isma94/Travial-Web.svg?branch=master)](https://travis-ci.org/isma94/Travial-Web) [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/isma94/Travial-Web) [![Try](./img/tryButton.jpg)](https://travial-web.herokuapp.com/)
+# Travial-Web [![Build Status](https://travis-ci.org/isma94/Travial-Web.svg?branch=master)](https://travis-ci.org/isma94/Travial-Web) [![Deploy (Heroku)](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/isma94/Travial-Web) [![Try (Heroku)](./img/tryButton.jpg)](https://travial-web.herokuapp.com/) [![DockerHub](./img/docker.png)](https://hub.docker.com/r/isluji/travial-web/)
 
 
 ## Proyecto para la asignatura Infraestructura Virtual de Ismael Luque Jiménez
