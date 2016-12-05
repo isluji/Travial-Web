@@ -10,12 +10,18 @@ ENV PYTHONUNBUFFERED 1
 
 MAINTAINER Ismael Luque Jimenez <isma94@correo.ugr.es>
 
-# Instalar git para poder clonar el repositorio
+# Aunque vayamos a utilizar Docker Compose para crear y conectar los servicios,
+# necesitamos instalar postgresql para que funcione el script wait-for-postgres.sh
+# que se encarga de esperar a que el contenedor de Postgres esté listo)
 RUN apt-get -y update
-RUN apt-get install -y git
+RUN apt-get install -y postgresql
 
 # Clonar repositorio en el contenedor
-RUN git clone https://github.com/isma94/Travial-Web
+#RUN apt-get install -y git
+#RUN git clone https://github.com/isma94/Travial-Web
+
+RUN mkdir /Travial-Web
+ADD . /Travial-Web
 WORKDIR /Travial-Web
 
 # Instalar dependencias de Python

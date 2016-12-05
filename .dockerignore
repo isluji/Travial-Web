@@ -113,4 +113,8 @@ dudas/
 .gitignore
 LICENSE
 README.md
+
 **/*.pyc
+
+scripts/
+compose/
