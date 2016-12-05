@@ -6,7 +6,7 @@ script: python manage.py test
 services:
   - postgresql
 before_script:
-  - psql -c "CREATE USER travial-web WITH PASSWORD 'test';" -U postgres
-  - psql -c "ALTER USER travial-web CREATEDB;" -U postgres
+  - psql -c "CREATE USER travial WITH PASSWORD 'test';" -U postgres
+  - psql -c "ALTER USER travial CREATEDB;" -U postgres
 notifications:
   email: false
