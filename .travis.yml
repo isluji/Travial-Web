@@ -5,8 +5,9 @@ install: pip install -r requirements.txt
 script: python manage.py test
 services:
   - postgresql
-# before_script:
-#   - psql -c "CREATE USER isluji WITH PASSWORD 'basedatos';" -U postgres
-#   - psql -c "ALTER USER isluji CREATEDB;" -U postgres
+before_script:
+  - su postgres
+  # - psql -c "CREATE USER isluji WITH PASSWORD 'basedatos';" -U postgres
+  # - psql -c "ALTER USER isluji CREATEDB;" -U postgres
 notifications:
   email: false
