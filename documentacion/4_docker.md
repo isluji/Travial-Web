@@ -34,18 +34,21 @@ Sin embargo, con la herramienta Docker Compose se facilita en gran medida esta t
 Además, tal como se indica en [este enlace](https://docs.docker.com/compose/extends/), podemos especificar un archivo base (el ya mencionado) con la estructura básica (imágenes y dependencias entre ellas), y crear un archivo "override" para cada entorno (desarrollo, staging, producción) añadiendo aquellas configuraciones que nos sean necesarias. De esta forma, ejecutamos docker-compose "fusionando" el docker-compose.yml con el fichero del entorno utilizado en cada momento.
 
 **[docker-compose.yml](https://github.com/isma94/Travial-Web/blob/master/compose/docker-compose.yml)**
+
 **[Extensión para desarrollo](https://github.com/isma94/Travial-Web/blob/master/compose/docker-compose.dev.yml)**
+
 **[Extensión para producción](https://github.com/isma94/Travial-Web/blob/master/compose/docker-compose.prod.yml)**
 
 Con esto surge un problema, y es que los servicios se inician en orden de dependencia, pero no se esperan unos a otros; por ejemplo, Compose no espera a que el contenedor de Postgres esté preparado para recibir peticiones para lanzar el contenedor web. Esto puede resultar en que el servidor web se ejecute cuando la BD aún no está lista, lo que en condiciones normales conlleva a la terminación del proceso.
 
 Para evitar esto, he utilizado el script wait-for-postgres.sh sugerido en [este enlace](https://docs.docker.com/compose/startup-order/). Este script hace de "entrypoint" para el contenedor web, no permitiéndole ejecutar su servicio hasta haber comprobado que el contenedor de Postgres está activo y listo para recibir peticiones.
 
-**[docker-compose.yml](https://github.com/isma94/Travial-Web/blob/master/wait-for-postgres.sh)**
+**[wait-for-postgres.sh](https://github.com/isma94/Travial-Web/blob/master/wait-for-postgres.sh)**
 
 Finalmente, lo que el usuario quiere es que desplegar la aplicación sea algo sencillo. Para ello, he creado un script que crea y despliega localmente la pila de contenedores y, además, aplica las migraciones necesarias en la base de datos. Según queramos crear un entorno de desarrollo o simular un entorno de producción, utilizaremos uno de estos dos scripts:
 
 **[Script de despliegue con Docker Compose para desarrollo](https://github.com/isma94/Travial-Web/blob/master/compose/deployDockerCompose_dev.sh)**
+
 **[Script de despliegue con Docker Compose para producción](https://github.com/isma94/Travial-Web/blob/master/compose/deployDockerCompose_prod.sh)**
 
 Me hubiera gustado también tener el servicio ejecutándose en un IaaS pero, en aplicaciones configuradas con Docker Compose, [esto se puede hacer de 2 formas](https://docs.docker.com/compose/production/): o modificando determinadas variables de entorno para desplegar la aplicación en un único host, o utilizando Docker Swarm para ejecutar la aplicación en un cluster de contenedores. También se podría hacer teniendo la aplicación y la BD instaladas en el mismo contenedor, pero para ello tendría que cambiar la configuración de BD de Django que he tenido que utilizar para desplegar con Compose.
