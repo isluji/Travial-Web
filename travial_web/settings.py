@@ -121,7 +121,7 @@ USE_TZ = True
 #   - default='postgres://USER:PASSWORD@HOST:PORT/DBNAME' => Enable local execution
 #   - default='postgres://isluji:basedatos@localhost/travial_web'
 #   - conn_max_age=500 => Enable persistent connections
-db_from_env = dj_database_url.config(default='postgres://postgres@localhost:5432/postgres', conn_max_age=500)
+db_from_env = dj_database_url.config(default='postgres://travial-web:test@localhost:5432/travial-web', conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
