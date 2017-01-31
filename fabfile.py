@@ -1,12 +1,17 @@
-from fabric.api import task, run, local, hosts, cd, env
+from fabric.api import task, run, local, hosts, cd, env, hide
 
 # Lanzar la aplicacion
 def start_app():
     run('cd /home/vagrant/Travial-Web/ && sudo gunicorn travial_web.wsgi -b 0.0.0.0:80 --log-file -')
-
+    
 # Detener la aplicacion
 def stop_app():
-    run('sudo service gunicorn stop')
+    run('sudo pkill gunicorn')
+    
+# Reiniciar la aplicacion
+def restart_app():
+    stop_app()
+    start_app()
     
 # Eliminar la aplicacion
 def remove_app():
