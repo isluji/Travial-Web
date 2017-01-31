@@ -134,7 +134,7 @@ Podemos ver a continuación la aplicación funcionando en el navegador:
 
 He recopilado los ficheros mencionados en las secciones anteriores en un Gist de GitHub para que cualquiera los pueda inspeccionar:
 
-<script src="https://gist.github.com/isma94/78f7905c1d70542eba9de1072ce6c01e.js"></script>
+**[Ficheros del hito 5 de IV](https://gist.github.com/isma94/78f7905c1d70542eba9de1072ce6c01e)**
 
 
 ----------------------------
