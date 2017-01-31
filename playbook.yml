@@ -1,0 +1,26 @@
+- hosts: default
+  remote_user: vagrant
+  become: yes
+  become_method: sudo
+  
+  tasks:
+  - name: Actualizar cache de repositorios
+    apt: update_cache=yes
+
+  - name: Instalar paquetes necesarios para el provisionamiento
+    apt: name={{ item }}
+    with_items:
+      - build-essential
+      - python-dev
+      - python-pip
+      - libpq-dev
+      - git
+
+  - name: Clonar proyecto desde GitHub
+    git:
+      repo: https://github.com/isma94/Travial-Web.git
+      dest: /home/vagrant/Travial-Web
+      force: yes
+
+  - name: Instalar dependencias del proyecto
+    pip: requirements=/home/vagrant/Travial-Web/requirements.txt
