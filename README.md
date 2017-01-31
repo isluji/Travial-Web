@@ -72,3 +72,18 @@ Una vez hecho esto, puedes desplegar la aplicación ejecutando un simple script.
 * [Ejecutar en un entorno de desarrollo](./compose/deployDockerCompose_dev.sh), con la cual podrás acceder a la aplicación desde tu navegador con http://localhost:8000/
 
 * [Ejecutar simulando un entorno de producción](./compose/deployDockerCompose_prod.sh), con la cual podrás acceder a la aplicación tal como si estuviera desplegada en el mismo host (utilizando la URL http://localhost/)
+
+
+## Despliegue en un IaaS con Vagrant
+
+Como objetivo final, he configurado un sistema para la creación, lanzamiento, provisionamiento y despliegue automatizados de una MV en un IaaS (en este caso, ```Microsoft Azure```), de forma que funcione como servidor web de la app.
+
+Para ello, he utilizado la herramienta ```Vagrant```. Esta herramienta funciona con un fichero Ruby denominado **[Vagrantfile](./Vagrantfile)**, que al ejecutarlo se encarga de crear y lanzar las MVs (el *proveedor* por defecto es VirtualBox, por lo que para conectar con Azure es necesario instalar su plugin) y de provisionarlas, con la ayuda también de otro tipo de herramientas denominadas *provisionadores*.
+
+En este caso, el provisionador que he usado es ```Ansible```. Esta herramienta funciona con ficheros YAML denominados **[playbooks](./playbook.yml)**, que especifican las tareas a realizar para provisionar la MV, utilizando los denominados *módulos* (apt, git, pip, etc.).
+
+Finalmente, para controlar la ejecución de nuestra app en la MV, utilizamos la herramienta ```Fabric```. Esta herramienta se encarga de ejecutar métodos de forma remota en nuestra MV, definidos en un fichero Python denominado **[fabfile.py](./fabfile.py)**
+
+Si tienes un sistema Debian o Ubuntu, puedes instalar las herramientas necesarias para el proceso ejecutando [este script](./vagrant/installVagrantAndRequirements.sh).
+
+Una vez dispongas de una cuenta en Azure con la posibilidad de crear MVs Linux, puedes desplegar la aplicación con el [tutorial detallado en la documentación](https://github.com/isma94/Travial-Web/blob/doc/documentacion/5_IaaS.md).
