@@ -116,5 +116,11 @@ README.md
 
 **/*.pyc
 
-scripts/
-compose/
+# Personal aux stuff
+dudas/
+private/
+
+# Scripts de los hitos
+docker/
+heroku/
+vagrant/

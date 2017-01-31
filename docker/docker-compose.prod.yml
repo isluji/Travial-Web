@@ -1,0 +1,8 @@
+version: '2'
+services:
+  web:
+    command: gunicorn -b 0.0.0.0:8000 travial_web.wsgi --log-file  -
+    ports:
+      - "80:8000"
+    environment:
+      PRODUCTION: 'true'

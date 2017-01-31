@@ -1,9 +1,0 @@
- version: '2'
- services:
-   db:
-     image: postgres
-   web:
-     image: isluji/travial-web:compose
-     depends_on:
-       - db
-     entrypoint: ./wait-for-postgres.sh db

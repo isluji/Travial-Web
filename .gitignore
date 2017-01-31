@@ -104,6 +104,9 @@ staticfiles
 
 # Personal aux stuff
 /dudas/
+/private/
 
-/compose/Travial-Web/
-/scripts/Travial-Web/
+# Despliegues en local
+/docker/Travial-Web/
+/heroku/Travial-Web/
+/vagrant/Travial-Web/
