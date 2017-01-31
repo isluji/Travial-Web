@@ -110,3 +110,6 @@ staticfiles
 /docker/Travial-Web/
 /heroku/Travial-Web/
 /vagrant/Travial-Web/
+
+# Vagrant stuff
+/.vagrant/
