@@ -111,5 +111,6 @@ staticfiles
 /heroku/Travial-Web/
 /vagrant/Travial-Web/
 
-# Vagrant stuff
+# Vagrant / Ansible stuff
 /.vagrant/
+*.retry
