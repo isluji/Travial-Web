@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+     <div class="alert alert-error text-center" role="alert">
+       <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+     </div>
+    {% else %}
+     <div class="alert alert-error text-center" role="alert">
+       <p>Please login to see this page.</p>
+     </div>
+    {% endif %}
+{% endif %}
+
+<div class="container login-container">
+
+     <form class="form-signin" method="post" action="{% url 'login' %}">
+       {% csrf_token %}
+       <h2 class="form-signin-heading">Please sign in</h2>
+       
+       <table>
+       <tr>
+           <td class="sr-only">{{ form.username.label_tag }}</td>
+           <td>{{ form.username }}</td>
+       </tr>
+       <tr>
+           <td class="sr-only">{{ form.password.label_tag }}</td>
+           <td>{{ form.password }}</td>
+       </tr>
+       </table>
+       
+       <div class="checkbox remember-me">
+         <label><input type="checkbox" value="remember-me"> Remember me</label>
+       </div>
+       
+       <input class="btn btn-lg btn-primary" type="submit" value="Sign in"/>
+       <input type="hidden" name="next" value="{{ next }}" />
+     </form>
+
+   </div> <!-- /container -->
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+{% endblock %}

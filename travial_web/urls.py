@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import include, url
 
 from django.contrib import admin
+from django.contrib import auth
 admin.autodiscover()
 
 import travial_web_app.views
@@ -26,6 +27,12 @@ import travial_web_app.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
+    url('^', include('django.contrib.auth.urls')),  # User authentication URLs
+    url(r'^admin/', include(admin.site.urls)),  # Admin URLs
+    url(r'^logout/', auth.views.logout),
+    
+    # Custom URLs
     url(r'^$', travial_web_app.views.index, name='index'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^profile/$', travial_web_app.views.player_profile, name='player_profile'),
+    url(r'^rankings/$', travial_web_app.views.rankings, name='rankings'),
 ]

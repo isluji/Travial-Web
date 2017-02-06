@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+    
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Player profile: <b>{{user.username}}</b></h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="/static/{{user.player.avatar}}" class="img-circle img-responsive"> </div>
+
+                    <div class=" col-md-9 col-lg-9 ">
+                        <table class="table table-user-information">
+                            <tbody>
+                                <tr>
+                                    <td>First name:</td>
+                                    <td>{{user.first_name}}</td>
+                                </tr>
+                                <tr>
+                                  <td>Last name:</td>
+                                  <td>{{user.last_name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Date of Birth</td>
+                                    <td>{{user.player.birthdate}}</td>
+                                </tr>
+
+                                <tr>
+                                    <tr>
+                                        <td>Gender</td>
+                                        <td>{{user.player.get_gender_display}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>{{user.player.country}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><a href="mailto:{{user.email}}">{{user.email}}</a></td>
+                                    </tr>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="btn-group player-stats" role="group" aria-label="Player stats">
+                          <div class="player-lvl btn btn-danger">
+                            <p>LEVEL <span>{{user.player.level}}</span></p>
+                          </div>
+                          <div class="player-exp btn btn-success">
+                            <p>EXP POINTS <span>{{user.player.exp_points}}</span></p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="panel-footer">
+                <a data-original-title="See my messages" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                
+                <span class="pull-right">
+                  <a href="edit.html" data-original-title="Edit my profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+                </span>
+            </div> -->
+          </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

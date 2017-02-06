@@ -13,6 +13,7 @@
       - build-essential
       - python-dev
       - python-pip
+      - postgresql
       - libpq-dev
       - git
 
@@ -24,3 +25,6 @@
 
   - name: Instalar dependencias del proyecto
     pip: requirements=/home/vagrant/Travial-Web/requirements.txt
+    
+  - name: Aplicar migraciones de la BD
+    command: python /home/vagrant/Travial-Web/manage.py migrate

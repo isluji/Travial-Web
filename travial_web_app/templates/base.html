@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Travial-Web</title>
-  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <style type="text/css">
-    .jumbotron {
-        background: #32af24;
-        color: white;
-        padding-bottom: 80px
-    }
-    .jumbotron .btn-primary {
-        background: #845ac7;
-        border-color: #845ac7
-    }
-    .jumbotron .btn-primary:hover {
-        background: #7646c1
-    }
-    .jumbotron p {
-        color: #d9ccee;
-        max-width: 75%;
-        margin: 1em auto 2em
-    }
-    .navbar+.jumbotron {
-        margin-top: -20px
-    }
-    .jumbotron .logo {
-        display: block;
-        background: #b01302;
-        border-radius: 50%;
-        overflow: hidden;
-        width: 100px;
-        height: 100px;
-        margin: auto;
-        border: 2px solid white
-    }
-    .jumbotron .logo img {
-        max-width: 100%
-    }
+    <title>Travial-Web</title>
 
-
-  </style>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/static/jumbotron.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/main.css"/>
 </head>
+
 <body>
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-      </li>
+    <!-- Navigation bar (to navigate through the different sections) -->
+    <nav class="navbar navbar-default navbar-static-top navbar-inverse">
+        <div class="container">
+            <!-- Tabs on the left -->
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+            </ul>
 
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-        <a href="https://github.com/isma94"><span class="glyphicon glyphicon-book"></span> © Ismael Luque Jiménez</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+            {% if user.is_authenticated %}
+              <ul class="nav navbar-nav">
+                  <li class="active">
+                      <a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                  </li>
+              </ul>
+              
+            <span class="welcome-msg">Welcome, <b>{{ user.username }}</b> !!!</span>
+              
+            {% else %}
+              <ul class="nav navbar-nav">
+                  <li class="active">
+                      <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                  </li>
+              </ul>
+              
+              <ul class="nav navbar-nav">
+                  <li class="active">
+                      <a href="/register"><span class="glyphicon glyphicon-list-alt"></span> Register</a>
+                  </li>
+              </ul>
+            {% endif %}
 
-{% block content %}{% endblock %}
+            <!-- Tabs on the right -->
+            <ul class="nav navbar-nav navbar-right">
+              <li class="navbar-right">
+                  <a href="/contact"><span class="glyphicon glyphicon-phone"></span> Contact</a>
+              </li>
+
+              <li class="navbar-right">
+                  <a href="/tutorials"><span class="glyphicon glyphicon-info-sign"></span> Tutorials</a>
+              </li>
+              
+              <li class="navbar-right">
+                  <a href="/rankings"><span class="glyphicon glyphicon-sort"></span> Rankings</a>
+              </li>
+              
+              <li class="navbar-right">
+                  <a href="/profile"><span class="glyphicon glyphicon-user"></span> My profile</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
 
 </body>
+
 </html>

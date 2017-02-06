@@ -30,14 +30,17 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'travial_web_app',
+
+    # We put "auth" before "admin" to avoid that user logout redirects to admin logged_out page
     'django.contrib.auth',
+    'django.contrib.admin',
+    
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_nose',
-    'travial_web_app',
 ]
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -77,13 +80,19 @@ WSGI_APPLICATION = 'travial_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+# Para funcionar en local
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'HOST': 'db',
+        'HOST': 'localhost',
         'PORT': 5432,
+        
+        # User authentication
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        
+        # Name of the DB  
+        'NAME': 'postgres',
     }
 }
 
@@ -121,8 +130,10 @@ USE_TZ = True
 #   - default='postgres://USER:PASSWORD@HOST:PORT/DBNAME' => Enable local execution
 #   - default='postgres://isluji:basedatos@localhost/travial_web'
 #   - conn_max_age=500 => Enable persistent connections
-db_from_env = dj_database_url.config(default='postgres://travial:test@localhost:5432/travial', conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+
+
+# db_from_env = dj_database_url.config(default='postgres://travial:test@localhost:5432/travial', conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -142,7 +153,13 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
+# Base path for image uploads with Pillow
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# USER AUTHENTICATION OPTIONS
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'

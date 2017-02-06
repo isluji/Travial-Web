@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="player-cards">
+  <h2>Top players worldwide</h2>
+  
+  {% for p in players_list %}
+  <div class="player-card">
+     <img src="/static/{{p.avatar}}" alt="avatar">
+     
+     <div class="player-info">
+       <h4><b>{{p.user.username}}</b> <span>{{p.level}}</span></h4>
+       <p>{{p.user.first_name}} {{p.user.last_name}} <strong>{{p.country}}</strong></p>
+     </div>
+  </div>
+  {% endfor %}
+</div>
+
+<br style="clear: both;">
+
+<div class="player-cards">
+  <h2>Top players in Spain</h2>
+
+  {% for p in players_list %}
+
+  {% if p.country == 'Spain' %}
+  <div class="player-card">
+     <img src="/static/{{p.avatar}}" alt="avatar">
+     
+     <div class="player-info">
+       <h4><b>{{p.user.username}}</b> <span>{{p.level}}</span></h4>
+       <p>{{p.user.first_name}} {{p.user.last_name}}</p>
+     </div>
+  </div>
+  {% endif %}
+  
+  {% endfor %}
+</div>
+
+{% endblock %}

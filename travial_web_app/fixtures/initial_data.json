@@ -1,0 +1,58 @@
+[
+  {
+    "model": "travial_web_app.monument",
+    "pk": 1,
+    "fields": {
+      "name": "Alhambra",
+      "city": "Granada",
+      "monum_type": "castle",
+      "civilization": "Muslim",
+      "approx_end_date": "1400",
+      "arch_style": "noidea"
+    }
+  },
+  
+  {
+    "model": "travial_web_app.question",
+    "pk": 1,
+    "fields": {
+      "text": "Who commanded the beginning of the construction of the Alhambra?",
+      "options": "['Rajoy', 'Ibn Zamrak', 'Mussolini', 'Ibn Nasr']",
+      "solution": "Ibn Nasr",
+      "hint": "It has a surname similar to a french Sevilla FC player"
+    }
+  },
+  {
+    "model": "travial_web_app.question",
+    "pk": 2,
+    "fields": {
+      "text": "Which architectural style has the Alhambra?",
+      "options": "['Nazari', 'Romantic', 'Baroque', 'Modernism']",
+      "solution": "Ibn Nasr",
+      "hint": "It's related to the dynasty that was governing Granada in that age"
+    }
+  },
+  {
+    "model": "travial_web_app.question",
+    "pk": 3,
+    "fields": {
+      "text": "In which year was the Alhambra finished (approximately)?",
+      "options": "['1369', '1420', '1235', '1456']",
+      "solution": "1369",
+      "hint": "Not so close to the discovery of America, but not the most distant"
+    }
+  },
+  
+  {
+    "model": "travial_web_app.trivia",
+    "pk": 1,
+    "fields": {
+      "title": "Discovering the Alhambra",
+      "monument": 1,
+      "size": "S",
+      "difficulty": "M",
+      "questions": [1,2,3],
+      "max_hints": 3
+    }
+  }
+]
