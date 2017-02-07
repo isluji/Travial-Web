@@ -1,14 +1,17 @@
 - hosts: default
   remote_user: vagrant
+  
+  # become + become_method = All the tasks will be executed with "sudo"
+  # If we need to become an user != root (sudo -u) => become_user
   become: yes
   become_method: sudo
   
   tasks:
-  - name: Actualizar cache de repositorios
-    apt: update_cache=yes
-
   - name: Instalar paquetes necesarios para el provisionamiento
-    apt: name={{ item }}
+    apt:
+      name: "{{ item }}"
+      update_cache: yes
+      # only_upgrade: yes
     with_items:
       - build-essential
       - python-dev
@@ -16,15 +19,39 @@
       - postgresql
       - libpq-dev
       - git
-
+  
   - name: Clonar proyecto desde GitHub
     git:
       repo: https://github.com/isma94/Travial-Web.git
       dest: /home/vagrant/Travial-Web
       force: yes
-
+      version: presentation
+  
   - name: Instalar dependencias del proyecto
     pip: requirements=/home/vagrant/Travial-Web/requirements.txt
+  
+  - name: Lanzar servidor de PostgreSQL
+    service:
+      name: postgresql
+      state: started
+
+  - name: Conseguir acceso al usuario 'postgres'
+    command: psql -c "ALTER USER postgres PASSWORD 'postgres';"
+    become_user: postgres
+  
+  # - name: Crear usuario de PostgreSQL
+  #   postgresql_user:
+  #     db: vagrant
+  #     name: vagrant
+  #     password: vagrant
+  #     role_attr_flags: CREATEDB
+  # 
+  # - name: Crear BD de PostgreSQL
+  #   postgresql_db:
+  #     name: vagrant    
+
+  - name: Generar migraciones de la BD
+    command: python /home/vagrant/Travial-Web/manage.py makemigrations
     
   - name: Aplicar migraciones de la BD
-    command: python /home/vagrant/Travial-Web/manage.py migrate
+    command: python /home/vagrant/Travial-Web/manage.py migrate --fake-initial

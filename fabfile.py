@@ -20,3 +20,7 @@ def remove_app():
 # Ejecutar los tests de la aplicacion
 def test_app():
     run('sudo python /home/vagrant/Travial-Web/manage.py test')
+
+# Inicializar la BD con un "population script"
+def init_db():
+    run('sudo -u postgres psql -d postgres -f /home/vagrant/Travial-Web/db_export.pgsql')
